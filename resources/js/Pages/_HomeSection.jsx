@@ -104,7 +104,7 @@ const Home = () => {
                     </li>
                     <li>
                         <a
-                            href="https://drive.google.com/file/d/1Hg8teRW5ItZ5lS1fPRXap_h3cWECL07e/view?usp=sharing"
+                            href="#"
                             className="flex items-center underline underline-thick underline-offset-8"
                         >
                             <LuDownload className="mr-2 " /> Download CV

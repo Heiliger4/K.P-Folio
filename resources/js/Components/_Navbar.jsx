@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { FaBars } from 'react-icons/fa';
 import '../../../public/images/nav.css';
 import { Link } from 'react-scroll';
+// where does it go
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

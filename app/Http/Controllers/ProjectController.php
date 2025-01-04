@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Project;
@@ -7,59 +6,36 @@ use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
+    // Insert a new project
     public function store(Request $request)
     {
-        //
+        $project = Project::insertProject($request->only([
+            'proji_picture', 
+            'title', 
+            'proji_description', 
+            'proji_demo_link', 
+            'proji_github_link'
+        ]));
+        return response()->json($project, 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Project $project)
+    // Update an existing project
+    public function update(Request $request, $id)
     {
-        //
+        $project = Project::updateProject($id, $request->only([
+            'proji_picture', 
+            'title', 
+            'proji_description', 
+            'proji_demo_link', 
+            'proji_github_link'
+        ]));
+        return response()->json($project);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Project $project)
+    // Delete a project
+    public function destroy($id)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Project $project)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Project $project)
-    {
-        //
+        $project = Project::deleteProject($id);
+        return response()->json(['message' => 'Project deleted successfully', 'project' => $project]);
     }
 }

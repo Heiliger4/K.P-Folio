@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Course;
@@ -7,59 +6,24 @@ use Illuminate\Http\Request;
 
 class CourseController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
+    // Insert a new course
     public function store(Request $request)
     {
-        //
+        $course = Course::insertCourse($request->only(['cert_picture', 'view_link']));
+        return response()->json($course, 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Course $course)
+    // Update an existing course
+    public function update(Request $request, $id)
     {
-        //
+        $course = Course::updateCourse($id, $request->only(['cert_picture', 'view_link']));
+        return response()->json($course);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Course $course)
+    // Delete a course
+    public function destroy($id)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Course $course)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Course $course)
-    {
-        //
+        $course = Course::deleteCourse($id);
+        return response()->json(['message' => 'Course deleted successfully', 'course' => $course]);
     }
 }

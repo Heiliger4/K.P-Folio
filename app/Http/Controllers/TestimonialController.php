@@ -7,59 +7,24 @@ use Illuminate\Http\Request;
 
 class TestimonialController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    // Update an existing testimonial
+    public function update(Request $request, $id)
     {
-        //
+        $testimonial = Testimonial::updateTestimonial($id, $request->only(['testimonial', 'name', 'title']));
+        return response()->json($testimonial);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    // Edit a testimonial (This will retrieve the testimonial by ID)
+    public function edit($id)
     {
-        //
+        $testimonial = Testimonial::findOrFail($id);
+        return response()->json($testimonial);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    // Delete a testimonial
+    public function destroy($id)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Testimonial $testimonial)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Testimonial $testimonial)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Testimonial $testimonial)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Testimonial $testimonial)
-    {
-        //
+        $testimonial = Testimonial::deleteTestimonial($id);
+        return response()->json(['message' => 'Testimonial deleted successfully', 'testimonial' => $testimonial]);
     }
 }

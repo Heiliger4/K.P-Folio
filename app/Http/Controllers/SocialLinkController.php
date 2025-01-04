@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\SocialLink;
@@ -7,59 +6,20 @@ use Illuminate\Http\Request;
 
 class SocialLinkController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function update($id, Request $request)
     {
-        //
-    }
+        $validatedData = $request->validate([
+            'github' => 'nullable|string|max:255',
+            'linkedin' => 'nullable|string|max:255',
+            'email' => 'nullable|string|max:255',
+            'twitter' => 'nullable|string|max:255',
+            'whatsapp' => 'nullable|string|max:255',
+            'phone_number' => 'nullable|string|max:255',
+            'hashnode' => 'nullable|string|max:255',
+        ]);
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+        $socialLink = SocialLink::updateSocialLinks($id, $validatedData);
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(SocialLink $socialLink)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(SocialLink $socialLink)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, SocialLink $socialLink)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(SocialLink $socialLink)
-    {
-        //
+        return response()->json($socialLink);
     }
 }

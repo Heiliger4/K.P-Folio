@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\ContactForm;
@@ -7,59 +6,17 @@ use Illuminate\Http\Request;
 
 class ContactFormController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    // Display all contact forms (read-only)
     public function index()
     {
-        //
+        $contactForms = ContactForm::all(); // Fetch all contact form entries
+        return response()->json($contactForms); // Return the data as JSON response
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    // Display a single contact form by ID (read-only)
+    public function show($id)
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(ContactForm $contactForm)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(ContactForm $contactForm)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, ContactForm $contactForm)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(ContactForm $contactForm)
-    {
-        //
+        $contactForm = ContactForm::findOrFail($id); // Find the contact form by ID
+        return response()->json($contactForm); // Return the single contact form as JSON response
     }
 }

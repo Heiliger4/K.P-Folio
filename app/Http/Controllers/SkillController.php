@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Skill;
@@ -7,59 +6,24 @@ use Illuminate\Http\Request;
 
 class SkillController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
+    // Insert a new skill
     public function store(Request $request)
     {
-        //
+        $skill = Skill::insertSkill($request->only(['react_icon_link', 'icon_title']));
+        return response()->json($skill, 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Skill $skill)
+    // Update an existing skill
+    public function update(Request $request, $id)
     {
-        //
+        $skill = Skill::updateSkill($id, $request->only(['react_icon_link', 'icon_title']));
+        return response()->json($skill);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Skill $skill)
+    // Delete a skill
+    public function destroy($id)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Skill $skill)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Skill $skill)
-    {
-        //
+        $skill = Skill::deleteSkill($id);
+        return response()->json(['message' => 'Skill deleted successfully', 'skill' => $skill]);
     }
 }

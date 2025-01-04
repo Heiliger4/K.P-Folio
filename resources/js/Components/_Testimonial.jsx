@@ -65,7 +65,7 @@ const Testimonial = () => {
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
         {testimonialsData.map(({ id, quote, name, role }) => (
-          <div className="testimonial-item w-full flex-shrink-0 p-6 text-center" key={id}>
+          <div className="testimonial-item w-full flex-shrink-0 p-12 text-center" key={id}>
             <p className="text-lg italic text-gray-300">
               <FaQuoteLeft className="inline-block text-green-400 mr-2" />
               {quote}

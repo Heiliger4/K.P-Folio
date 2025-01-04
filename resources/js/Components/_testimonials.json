@@ -1,24 +1,20 @@
 [
-    {
-      "id": 1,
-      "quote": "Tailwind CSS makes designing so much faster and es designing so much faster and es designing so much faster and easier. I can't recommend it enough!",
-      "name": "John Doe",
-      "role": "Software Engineer",
-      "image": "https://via.placeholder.com/50"
-    },
-    {
-      "id": 2,
-      "quote": "React is a fantastic library for building user interfaces, and I love using it for my projects.",
-      "name": "Jane Smith",
-      "role": "Frontend Developer",
-      "image": "https://via.placeholder.com/50"
-    },
-    {
-      "id": 3,
-      "quote": "Learning JavaScript is the key to unlocking the potential of modern web development.",
-      "name": "Sam Wilson",
-      "role": "Full Stack Developer",
-      "image": "https://via.placeholder.com/50"
-    }
-  ]
-  
+  {
+    "id": 1,
+    "quote": "Kidus Paulos is an exceptional developer with a deep understanding of modern web technologies. His work with Tailwind CSS has been truly impressive.",
+    "name": "Fitsum Girma",
+    "role": "UI/UX Designer"
+  },
+  {
+    "id": 2,
+    "quote": "Working with Kidus Paulos on React projects has been a game-changer. His attention to detail and problem-solving skills are unmatched.",
+    "name": "Eden Tesfaye",
+    "role": "Frontend Developer"
+  },
+  {
+    "id": 3,
+    "quote": "Kidus Paulos's expertise in JavaScript and full-stack development is remarkable. He's a reliable and talented professional.",
+    "name": "Getu Yilma",
+    "role": "Full Stack Developer"
+  }
+]

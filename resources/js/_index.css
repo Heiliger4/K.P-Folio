@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+    --background-color: #0d0d0d; 
+    --primary-text-color: #e0e0e0; 
+    --secondary-text-color: #a0a0a0;
+    --accent-color: #b8860b; 
+    --font-family: 'Roboto Mono', monospace; 
+    background-color: var(--background-color);
+    color: var(--primary-text-color);
+    font-family: var(--font-family);
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--primary-text-color);
+    font-family: var(--font-family);
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #ffa600; /* Gold color for hover effect */
+    transform: scale(1.1); /* Scale up effect */
+}
+
+p {
+    color: var(--secondary-text-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-text-color);
+    font-weight: 700;
+}
+
+button {
+    background-color: var(--accent-color);
+    color: var(--primary-text-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ffd700; /* Gold color for hover effect */
+}
+
+.container {
+    width: 85%; /* Adjust the width as needed */
+    max-width: 1200px; /* Optional: set a maximum width */
+    margin: 0 auto; /* Center the container */
+  }
+/* p {
+background-color:  #0a192f 
+Light Navy  #172a45 
+Lightest Navy  #303C55 
+Slate  #8892b0 
+Light Slate  #a8b2d1 
+Lightest Slate  #ccd6f6 
+Green  #64ffda
+} */

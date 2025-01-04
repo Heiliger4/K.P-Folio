@@ -1,0 +1,22 @@
+.underline-offset {
+    text-underline-offset: 4px; /* Adjust the value as needed */
+}
+
+.underline-offset-home {
+    text-underline-offset: 8px; /* Adjust the value as needed */
+}
+
+.underline-thick {
+    text-decoration-thickness: 2px; /* Adjust the value as needed */
+}
+.nav-text-color {
+    color: whitesmoke;
+}
+  
+.nav-bg-color {
+    background-color: #B7B7B7;
+}
+
+.skills-bg-color {
+    background-color: #070F2B;
+}

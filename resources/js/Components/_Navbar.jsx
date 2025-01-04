@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { FaBars } from 'react-icons/fa';
 import '../../../public/images/nav.css';
 import { Link } from 'react-scroll';
-// where does it go
+// where does it go 
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -12,7 +12,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`flex z-50 fixed top-0 left-1/2 transform -translate-x-1/2 justify-between mx-auto p-4 px-6 w-full transition-all duration-300 ${isMobileMenuOpen ? 'bg-gray-900' : 'bg-gray-800'}`}>
+    <nav className={`flex z-50 fixed top-0 left-1/2 transform -translate-x-1/2 justify-between mx-auto m-6 border border-transparent rounded-lg backdrop-blur-lg bg-gray-900/50 transition-all duration-300 ${isMobileMenuOpen ? 'w-2/3 m-0 p-4' : 'bg-gray-800'}`}>
       <div className="hidden md:flex w-full justify-center">
         <ul className="nav-text-color text-lg list-none nav-bg-color h-12 w-fit flex justify-center shadow-lg items-center gap-8 p-4 rounded-lg bg-opacity-75">
           <li><Link to="contact" spy={true} smooth={true} offset={-100} duration={500} className="nav-link text-sm md:text-base">Home</Link></li>
@@ -23,7 +23,7 @@ const Navbar = () => {
         </ul>
       </div>
 
-      <div className="md:hidden flex justify-between w-full gap-2">
+      <div className="md:hidden flex justify-between w-full px-8 gap-4">
         <span className="text-white font-semibold text-xl">KP Folio</span>
         <FaBars
           onClick={toggleMobileMenu}
@@ -31,7 +31,7 @@ const Navbar = () => {
         />
       </div>
 
-      <div className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'} absolute top-16 left-1/2 transform -translate-x-1/2 w-full bg-gray-800 bg-opacity-75 transition-all duration-300 ease-in-out`}>
+      <div className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'} absolute top-16 left-1/2 transform -translate-x-1/2 w-full bg-gray-900/50 w-full border border-transparent rounded-lg transition-all duration-300 ease-in-out `}>
         <ul className="list-none p-4 text-center">
           <li><Link to="contact" spy={true} smooth={true} offset={-100} duration={500} className="nav-link text-lg py-2">Home</Link></li>
           <li><Link to="about" spy={true} smooth={true} offset={-10} duration={500} className="nav-link text-lg py-2">About</Link></li>

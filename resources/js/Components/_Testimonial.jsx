@@ -2,11 +2,10 @@ import { FaAngleDoubleRight, FaAngleDoubleLeft, FaQuoteRight, FaQuoteLeft } from
 import { useState, useEffect } from "react";
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import testimonialsData from "./_testimonials";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Testimonial = () => {
+const Testimonial = ({ testimonials }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNavigation = (direction) => {
@@ -17,8 +16,8 @@ const Testimonial = () => {
       onComplete: () => {
         setCurrentIndex((prevIndex) =>
           direction === "prev"
-            ? (prevIndex - 1 + testimonialsData.length) % testimonialsData.length
-            : (prevIndex + 1) % testimonialsData.length
+            ? (prevIndex - 1 + testimonials.length) % testimonials.length
+            : (prevIndex + 1) % testimonials.length
         );
       },
     });
@@ -64,7 +63,7 @@ const Testimonial = () => {
         className="flex transition-transform duration-500"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
-        {testimonialsData.map(({ id, quote, name, role }) => (
+        {testimonials.map(({ id, quote, name, role }) => (
           <div className="testimonial-item w-full flex-shrink-0 p-12 text-center" key={id}>
             <p className="text-lg italic text-gray-300">
               <FaQuoteLeft className="inline-block text-green-400 mr-2" />

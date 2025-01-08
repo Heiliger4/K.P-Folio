@@ -4,7 +4,9 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ExperienceSection = () => {
+const ExperienceSection = ({ experiences }) => {
+  console.log(`here is the data passed: ${JSON.stringify(experiences, null, 2)}`);
+
   useEffect(() => {
     gsap.fromTo(
       ".timeline-item",
@@ -37,45 +39,31 @@ const ExperienceSection = () => {
             <div className="w-0.5 bg-red-300 h-full"></div>
           </div>
 
-          {/* Timeline Item 1 */}
-          <div className="timeline-item flex flex-col md:flex-row items-center mb-16">
-            <div className="w-full md:w-1/2 pr-8 text-left">
-              <div className="bg-black text-white p-6 rounded shadow-md">
-                <h3 className="font-bold">SAINT MARY'S UNIVERSITY</h3>
-                <p>Bachelors in Computer Science</p>
-                <p>Addis Ababa, ET</p>
-                <ul className="text-sm mt-2 space-y-2">
-                  <li>I was fresh</li>
-                  <li>Transport sucks</li>
-                  <li>Active participant in extracurricular tech initiatives</li>
-                </ul>
+          {/* Render Timeline Items */}
+          {experiences.experiences?.map((experience, index) => (
+            <div
+              key={index}
+              className={`timeline-item flex flex-col md:flex-row items-center mb-16 ${index % 2 === 0 ? '' : 'flex-row-reverse'}`}
+            >
+              {/* Text Card */}
+              <div className="w-full md:w-1/2 pr-8 text-left">
+                <div className="bg-black text-white p-6 rounded shadow-md">
+                  <h3 className="font-bold">{experience.title}</h3>
+                  <p>{experience.sub_title}</p>
+                  <p>Addis Ababa, ET</p>
+                  <ul className="text-sm mt-2 space-y-2">
+                    <li>Details about the role</li>
+                    <li>Transport issues, etc.</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Year Card */}
+              <div className="w-full md:w-1/2 pl-8 text-left mt-4 md:mt-0">
+                <p className="text-gray-500 my-4">{experience.start_year} - {experience.end_year}</p>
               </div>
             </div>
-
-            <div className="w-full md:w-1/2 pl-8 text-left mt-4 md:mt-0">
-              <p className="text-gray-500 my-4">2021 - 2024</p>
-            </div>
-          </div>
-
-          {/* Timeline Item 2 */}
-          <div className="timeline-item flex flex-col md:flex-row items-center">
-            <div className="w-full md:w-1/2 pr-8 text-right mt-4 md:mt-0">
-              <p className="text-gray-500 my-4">2023 - 2024</p>
-            </div>
-
-            <div className="w-full md:w-1/2 pl-8 text-left">
-              <div className="bg-black text-white p-6 rounded shadow-md">
-                <h3 className="font-bold">SAINT MARY'S UNIVERSITY</h3>
-                <p>Bachelors in Computer Science</p>
-                <p>Addis Ababa, ET</p>
-                <ul className="text-sm mt-2 space-y-2">
-                  <li>Currently completing the final year of the program</li>
-                  <li>Engaged in hands-on projects and coursework in programming, databases, and algorithms</li>
-                  <li>Active participant in extracurricular tech initiatives</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

@@ -19,7 +19,10 @@ use App\Http\Controllers\BulletedNoteController;
 
 
 // Route::resource('/', HomeController::class);
-Route::resource('/', AboutController::class);
+// Route::resource('/', AboutController::class);
+// Route::resource('/', ExperienceController::class);
+// Route::resource('/', TestimonialController::class);
+Route::resource('/', SocialLinkController::class);
 
 
 // Route::get('/', function () {

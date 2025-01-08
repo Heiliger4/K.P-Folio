@@ -5,7 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const AboutSection = ({abouts}) => {
-  console.log(`here is the data passed: ${JSON.stringify(abouts, null, 2)}`);
+  // console.log(`here is the data passed: ${JSON.stringify(abouts, null, 2)}`);
 
   const aboutRef = useRef(null);
 

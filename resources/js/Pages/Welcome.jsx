@@ -12,7 +12,7 @@ import AboutSection from '../Pages/_AboutSection';
 import ExperienceSection from '../Pages/_ExperienceSection';
 import '../_index.css';
 
-export default function Welcome({ auth, laravelVersion, phpVersion, homes, abouts }) {
+export default function Welcome({ auth, laravelVersion, phpVersion, homes, abouts, experiences, testimonials, socialLinks }) {
     const handleImageError = () => {
         document
             .getElementById('screenshot-container')
@@ -28,14 +28,14 @@ export default function Welcome({ auth, laravelVersion, phpVersion, homes, about
         <>
             <Head title="K.P Folio" />
             <Navbar />
-              <SocialLinks />
+              <SocialLinks socialLinks={socialLinks}/>
               <Home homes={homes}/>
               <AboutSection abouts={abouts} />
               <ProjectCard />
               <SkillsSection />
-              <ExperienceSection />
+              {/* <ExperienceSection experiences={experiences}/> */}
               <CoursesCertificationsSection />
-              <Testimonial />
+              {/* <Testimonial testimonials={testimonials} /> */}
               <ContactForm />
               <Footer />
         </>

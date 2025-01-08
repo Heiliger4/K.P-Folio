@@ -18,8 +18,8 @@ use App\Http\Controllers\BulletedNoteController;
 
 
 
-Route::resource('/', HomeController::class);
-// Route::resource('/', AboutController::class);
+// Route::resource('/', HomeController::class);
+Route::resource('/', AboutController::class);
 
 
 // Route::get('/', function () {

@@ -4,7 +4,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const AboutSection = () => {
+const AboutSection = ({abouts}) => {
+  console.log(`here is the data passed: ${JSON.stringify(abouts, null, 2)}`);
+
   const aboutRef = useRef(null);
 
   useEffect(() => {
@@ -33,17 +35,28 @@ const AboutSection = () => {
   }, []);
 
   return (
-    <div className="flex justify-center py-16" id='about'>
-      <div
-        ref={aboutRef}
-        className="max-w-4xl w-full bg-white bg-opacity-10 p-8 rounded-lg shadow-lg"
-        style={{ width: '90%', borderRadius: '10px', backdropFilter: 'blur(10px)' }}
-      >
-        <p className="text-3xl md:text-4xl lg:text-6xl font-bold text-center mb-8">About me</p>
-        <p className="text-base md:text-xl lg:text-3xl text-center">
-                Hi, I'm Kidus Paulos! I'm currently studying Computer Science and have a passion for turning ideas into impactful digital solutions. Over the years, I've worked on various projects that have strengthened my skills in problem-solving, creativity, and teamwork. I thrive on challenges that push my boundaries and am excited to create solutions that make a real-world impact!</p>
+      <div className="flex justify-center py-16" id="about">
+          <div
+              ref={aboutRef}
+              className="max-w-4xl w-full bg-white bg-opacity-10 p-8 rounded-lg shadow-lg"
+              style={{
+                  width: "90%",
+                  borderRadius: "10px",
+                  backdropFilter: "blur(10px)",
+              }}
+          >
+              <p className="text-3xl md:text-4xl lg:text-6xl font-bold text-center mb-8">
+                  About me
+              </p>
+              {abouts && (
+                  <p className="text-base md:text-xl lg:text-3xl text-center">
+                      {abouts && abouts.about_description
+                          ? abouts.about_description
+                          : "Hi, I'm Kidus Paulos! I'm currently studying Computer Science and have a passion for turning ideas into impactful digital solutions. Over the years, I've worked on various projects that have strengthened my skills in problem-solving, creativity, and teamwork. I thrive on challenges that push my boundaries and am excited to create solutions that make a real-world impact!"}
+                  </p>
+              )}
+          </div>
       </div>
-    </div>
   );
 };
 

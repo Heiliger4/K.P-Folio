@@ -41,8 +41,7 @@ const AboutSection = () => {
       >
         <p className="text-3xl md:text-4xl lg:text-6xl font-bold text-center mb-8">About me</p>
         <p className="text-base md:text-xl lg:text-3xl text-center">
-          Hi, I&apos;m Kidus Paulos! I recently graduated in Computer Science and have a passion for turning ideas into impactful digital solutions. Over the years, I&apos;ve created interactive games using Unity, optimized reward functions for AWS DeepRacer, and designed visually stunning picture books as a freelance graphic designer. These experiences have strengthened my skills in problem-solving, creativity, and teamwork. I thrive on challenges that push my boundaries and am excited to create solutions that make a real-world impact!
-        </p>
+                Hi, I'm Kidus Paulos! I'm currently studying Computer Science and have a passion for turning ideas into impactful digital solutions. Over the years, I've worked on various projects that have strengthened my skills in problem-solving, creativity, and teamwork. I thrive on challenges that push my boundaries and am excited to create solutions that make a real-world impact!</p>
       </div>
     </div>
   );

@@ -1,14 +1,77 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\Home;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class HomeController extends Controller
 {
-    public function update(Request $request, $id)
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
     {
-        $home = Home::updateHome($id, $request->only(['name', 'profile_picture', 'home_description']));
-        return response()->json($home);
+        // Fetch the first home
+        $home = Home::first();
+    
+        // Pass home data to the front end
+        return Inertia::render('Welcome', [
+            'homes' => [
+                'first_name' => $home->first_name,
+                'last_name' => $home->last_name,
+                'home_description' => $home->home_description,
+                'profile_picture' => asset('images/' . $home->profile_picture), // Dynamically pass image path
+            ],
+        ]);
+    }
+    
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Home $home)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Home $home)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, Home $home)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Home $home)
+    {
+        //
     }
 }

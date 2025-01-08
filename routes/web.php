@@ -18,13 +18,16 @@ use App\Http\Controllers\BulletedNoteController;
 
 
 
+Route::resource('/', HomeController::class);
+// Route::resource('/', AboutController::class);
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+
+// Route::get('/', function () {
+//     return Inertia::render('Welcome', [
+//         'laravelVersion' => Application::VERSION,
+//         'phpVersion' => PHP_VERSION,
+//     ]);
+// });
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

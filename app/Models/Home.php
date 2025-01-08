@@ -1,19 +1,51 @@
 <?php
+
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Home extends Model
 {
-    use HasFactory;
+    // Define the table name (optional if it matches the model name in plural)
+    protected $table = 'homes';
 
-    protected $fillable = ['name', 'profile_picture', 'home_description'];
+    // Define the fillable fields for mass assignment
+    protected $fillable = [
+        'name',
+        'profile_picture',
+        'home_description',
+    ];
 
-    public static function updateHome($id, $data)
+    // Accessors for splitting the name into first name and last name
+    public function getFirstNameAttribute()
     {
-        $home = self::findOrFail($id);
-        $home->update($data);
-        return $home;
+        return explode(' ', $this->name)[0] ?? '';
+    }
+
+    public function getLastNameAttribute()
+    {
+        return explode(' ', $this->name)[1] ?? '';
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

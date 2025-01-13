@@ -31,7 +31,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion, homes, about
             <Head title="K.P Folio" />
             <Navbar />
               <SocialLinks socialLinks={socialLinks}/>
-              <Home homes={homes}/>
+              <Home homes={homes} socialLinks={socialLinks}/>
               <AboutSection abouts={abouts} />
               <ProjectCard />
               <SkillsSection />

@@ -20,7 +20,7 @@ const ProjectCard = () => {
         
         
         {/* Project Card-0 */}
-        <div className="w-full bg-white bg-opacity-10 text-white rounded-3xl p-8 shadow-md transform transition-transform hover:scale-105">
+        {/* <div className="w-full bg-white bg-opacity-10 text-white rounded-3xl p-8 shadow-md transform transition-transform hover:scale-105">
           <div className="flex justify-center">
             <div className="w-48 h-48 overflow-hidden rounded-lg">
               <img src={project_1} alt="Description of image" className="object-cover w-full h-full" />
@@ -45,7 +45,7 @@ const ProjectCard = () => {
               </div>
             </li>
           </ul>
-        </div>
+        </div> */}
 
 
 

@@ -16,10 +16,10 @@ const SkillsSection = () => {
     <section id="skills" className="flex flex-wrap gap-4 p-8 mx-auto text-white rounded-lg shadow-lg" style={{ backgroundColor: '#0d0d0d', maxWidth: '1200px' }}>
       <h1 className="w-full text-6xl font-bold text-center mb-8">Skills</h1>
       <div className="flex flex-wrap justify-center gap-4">
-        <div className="skill-item flex flex-col items-center justify-center bg-black rounded-lg shadow-glow w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-48 lg:h-48">
+        {/* <div className="skill-item flex flex-col items-center justify-center bg-black rounded-lg shadow-glow w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-48 lg:h-48">
           <FaHtml5 className="text-orange-600 text-4xl" />
           <p className="text-white mt-2 text-sm">HTML5</p>
-        </div>
+        </div> */}
 
 
 

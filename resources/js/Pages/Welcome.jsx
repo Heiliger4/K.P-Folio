@@ -30,14 +30,14 @@ export default function Welcome({ auth, laravelVersion, phpVersion, homes, about
         <>
             <Head title="K.P Folio" />
             <Navbar />
-              {/* <SocialLinks socialLinks={socialLinks}/> */}
+              <SocialLinks socialLinks={socialLinks}/>
               <Home homes={homes}/>
               <AboutSection abouts={abouts} />
               <ProjectCard />
               <SkillsSection />
-              {/* <ExperienceSection experiences={experiences}/> */}
+              <ExperienceSection experiences={experiences}/>
               <CoursesCertificationsSection />
-              {/* <Testimonial testimonials={testimonials} /> */}
+              <Testimonial testimonials={testimonials} />
               <ContactForm />
               <Footer />
         </>

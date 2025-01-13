@@ -12,19 +12,17 @@ class ExperienceController extends Controller
         // Fetch all experiences
         $experiences = Experience::all();
         
-        // Pass Experience data to the frontend
-        return Inertia::render('Welcome', [
-            'experiences' => [
-                'experiences' => $experiences->map(function ($experience) {
-                    return [
-                        'start_year' => $experience->start_year,
-                        'end_year' => $experience->end_year,
-                        'title' => $experience->title,
-                        'sub_title' => $experience->sub_title,
-                    ];
-                }),
-            ],
-        ]);
+        // Return formatted data
+        return [
+            'experiences' => $experiences->map(function ($experience) {
+                return [
+                    'start_year' => $experience->start_year,
+                    'end_year' => $experience->end_year,
+                    'title' => $experience->title,
+                    'sub_title' => $experience->sub_title,
+                ];
+            }),
+        ];
     }
     
 

@@ -22,9 +22,9 @@ class SocialLinkController extends Controller
             ];
         });
     
-        return Inertia::render('Welcome', [
+        return [
             'socialLinks' => $socialLinks,
-        ]);
+        ];
     }
     
     public function update($id, Request $request)

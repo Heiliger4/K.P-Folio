@@ -13,8 +13,8 @@ class TestimonialController extends Controller
         // Fetch all testimonials
         $testimonials = Testimonial::all();
         
-        // Pass testimonial data to the frontend
-        return Inertia::render('Welcome', [
+        // Return formatted data
+        return [
             'testimonials' => $testimonials->map(function ($item) {
                 return [
                     'id' => $item->id,
@@ -23,7 +23,7 @@ class TestimonialController extends Controller
                     'role' => $item->title, // assuming title is the role
                 ];
             }),
-        ]);
+        ];
     }
     
     

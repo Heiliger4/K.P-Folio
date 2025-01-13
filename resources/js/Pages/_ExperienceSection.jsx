@@ -5,7 +5,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const ExperienceSection = ({ experiences }) => {
-  console.log(`here is the data passed: ${JSON.stringify(experiences, null, 2)}`);
+  console.log(`here is the experience data passed: ${JSON.stringify(experiences, null, 2)}`);
 
   useEffect(() => {
     gsap.fromTo(
@@ -40,7 +40,7 @@ const ExperienceSection = ({ experiences }) => {
           </div>
 
           {/* Render Timeline Items */}
-          {experiences.experiences?.map((experience, index) => (
+          {experiences?.map((experience, index) => (
             <div
               key={index}
               className={`timeline-item flex flex-col md:flex-row items-center mb-16 ${index % 2 === 0 ? '' : 'flex-row-reverse'}`}

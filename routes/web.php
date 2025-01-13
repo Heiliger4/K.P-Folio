@@ -14,23 +14,9 @@ use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\SocialLinkController;
 use App\Http\Controllers\TechStackController;
 use App\Http\Controllers\BulletedNoteController;
-
-
-
-// Route::resource('/', HomeController::class);
-// Route::resource('/', AboutController::class);
-// Route::resource('/', ExperienceController::class);
-// Route::resource('/', TestimonialController::class);
-// Route::resource('/', SocialLinkController::class);
-
 use App\Http\Controllers\WelcomeController;
 
 Route::get('/', [WelcomeController::class, 'index']);
-
-// Route::get('/', function () {
-//     return Inertia::render('Welcome', [
-//     ]);
-// });
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

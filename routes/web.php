@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\HomeController;
@@ -22,13 +21,14 @@ use App\Http\Controllers\BulletedNoteController;
 // Route::resource('/', AboutController::class);
 // Route::resource('/', ExperienceController::class);
 // Route::resource('/', TestimonialController::class);
-Route::resource('/', SocialLinkController::class);
+// Route::resource('/', SocialLinkController::class);
 
+use App\Http\Controllers\WelcomeController;
+
+Route::get('/', [WelcomeController::class, 'index']);
 
 // Route::get('/', function () {
 //     return Inertia::render('Welcome', [
-//         'laravelVersion' => Application::VERSION,
-//         'phpVersion' => PHP_VERSION,
 //     ]);
 // });
 

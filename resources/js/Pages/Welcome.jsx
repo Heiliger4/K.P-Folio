@@ -13,6 +13,8 @@ import ExperienceSection from '../Pages/_ExperienceSection';
 import '../_index.css';
 
 export default function Welcome({ auth, laravelVersion, phpVersion, homes, abouts, experiences, testimonials, socialLinks }) {
+    console.log(`here is the data homes passed: ${JSON.stringify(homes, null, 2)}`);
+    console.log(`here is the data abouts passed: ${JSON.stringify(abouts, null, 2)}`);
     const handleImageError = () => {
         document
             .getElementById('screenshot-container')
@@ -28,7 +30,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion, homes, about
         <>
             <Head title="K.P Folio" />
             <Navbar />
-              <SocialLinks socialLinks={socialLinks}/>
+              {/* <SocialLinks socialLinks={socialLinks}/> */}
               <Home homes={homes}/>
               <AboutSection abouts={abouts} />
               <ProjectCard />

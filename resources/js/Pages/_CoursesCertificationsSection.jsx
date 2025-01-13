@@ -17,6 +17,9 @@ const CoursesCertificationsSection = () => {
                 Courses and Certifications
             </h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-16">
+                
+                
+                
                 {/* ----------------------------------------------------------------------------------------------------------------- */}
                 <div className="w-full h-full bg-white bg-opacity-10 text-white rounded-3xl p-8 shadow-md transform transition-transform hover:scale-105">
                     <div className="flex justify-center">

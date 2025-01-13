@@ -13,11 +13,9 @@ class AboutController extends Controller
         $about = About::first();
     
         // Pass home data to the front end
-        return Inertia::render('Welcome', [
-            'abouts' => [
+        return [
                 'about_description' => $about->about_description,
-            ],
-        ]);
+            ];
     }
     public function update(Request $request, $id)
     {

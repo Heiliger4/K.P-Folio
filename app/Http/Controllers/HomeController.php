@@ -17,14 +17,13 @@ class HomeController extends Controller
         $home = Home::first();
     
         // Pass home data to the front end
-        return Inertia::render('Welcome', [
-            'homes' => [
+        return 
+            [
                 'first_name' => $home->first_name,
                 'last_name' => $home->last_name,
                 'home_description' => $home->home_description,
                 'profile_picture' => asset('images/' . $home->profile_picture), // Dynamically pass image path
-            ],
-        ]);
+            ];
     }
     
     /**

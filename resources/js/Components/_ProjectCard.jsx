@@ -12,6 +12,13 @@ const ProjectCard = () => {
     <section id="projects" className="grid gap-8 p-8 my-32 mx-auto text-white rounded-lg shadow-lg" style={{ backgroundColor: '#0d0d0d' }}>
       <h1 className="text-6xl font-bold text-center mb-8">Projects</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        
+        
+        
+        
+        
+        
         {/* Project Card-0 */}
         <div className="w-full bg-white bg-opacity-10 text-white rounded-3xl p-8 shadow-md transform transition-transform hover:scale-105">
           <div className="flex justify-center">

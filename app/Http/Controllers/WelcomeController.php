@@ -33,16 +33,14 @@ class WelcomeController extends Controller
         $experienceData = $this->experienceController->index();
         $testimonialData = $this->testimonialController->index();
         $socialLinkData = $this->socialLinkController->index();
-
-        // dd($socialLinkData);
+// dd($testimonialData);
+        // Pass the testimonials data correctly
         return Inertia::render('Welcome', [
             'homes' => $homeData,
             'abouts' => $aboutData,
+            'testimonials' => $testimonialData,
             'experiences' => $experienceData['experiences'],
-            'testimonials' => $testimonialData['testimonials'],
             'socialLinks' => $socialLinkData['socialLinks'],
-        ]);    
+        ]);
     }
 }
-
-

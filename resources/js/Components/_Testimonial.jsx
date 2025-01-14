@@ -8,6 +8,11 @@ gsap.registerPlugin(ScrollTrigger);
 const Testimonial = ({ testimonials }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Convert testimonials to an array if it's not already one
+  const testimonialsArray = Array.isArray(testimonials) ? testimonials : Array.from(testimonials);
+
+  console.log(`Here is the data from home testimonials: ${JSON.stringify(testimonialsArray, null, 2)}`);
+
   const handleNavigation = (direction) => {
     gsap.to(".testimonial-item", {
       opacity: 0,
@@ -16,8 +21,8 @@ const Testimonial = ({ testimonials }) => {
       onComplete: () => {
         setCurrentIndex((prevIndex) =>
           direction === "prev"
-            ? (prevIndex - 1 + testimonials.length) % testimonials.length
-            : (prevIndex + 1) % testimonials.length
+            ? (prevIndex - 1 + testimonialsArray.length) % testimonialsArray.length
+            : (prevIndex + 1) % testimonialsArray.length
         );
       },
     });
@@ -63,23 +68,24 @@ const Testimonial = ({ testimonials }) => {
         className="flex transition-transform duration-500"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
-        {testimonials.map(({ id, quote, name, role }) => (
+        {testimonialsArray.map(({ id, testimonial, name, title }) => (
           <div className="testimonial-item w-full flex-shrink-0 p-12 text-center" key={id}>
             <p className="text-lg italic text-gray-300">
               <FaQuoteLeft className="inline-block text-green-400 mr-2" />
-              {quote}
+              {testimonial}
               <FaQuoteRight className="inline-block text-green-400 ml-2" />
             </p>
             <div className="mt-4 flex items-center justify-center">
               <div className="ml-3">
                 <h4 className="text-md font-semibold text-white">{name}</h4>
-                <p className="text-sm text-gray-400">{role}</p>
+                <p className="text-sm text-gray-400">{title}</p> {/* Make sure to display the title or role */}
               </div>
             </div>
           </div>
         ))}
       </div>
 
+      {/* Navigation Buttons */}
       <button
         onClick={() => handleNavigation("prev")}
         className="absolute top-1/2 left-2 -translate-y-1/2 p-2 bg-gray-700 rounded-full hover:bg-gray-600"

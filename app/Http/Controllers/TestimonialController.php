@@ -8,43 +8,69 @@ use Inertia\Inertia;
 
 class TestimonialController extends Controller
 {
+    // public function index()
+    // {
+    //     $testimonials = Testimonial::all()->map(function ($item) {
+    //         return [
+    //             'id' => $item->id,
+    //             'testimonial' => $item->testimonial,
+    //             'name' => $item->name,
+    //             'title' => $item->title,
+    //         ];
+    //     })->toArray(); // Convert the collection to an array
+    
+    //     return $testimonials; // Return as an array
+    // }
     public function index()
     {
-        // Fetch all testimonials
         $testimonials = Testimonial::all();
-        
-        // Return formatted data
-        return [
+
+        return Inertia::render('Dashboard', [
             'testimonials' => $testimonials->map(function ($item) {
                 return [
                     'id' => $item->id,
-                    'quote' => $item->testimonial,
+                    'testimonial' => $item->testimonial,
                     'name' => $item->name,
-                    'role' => $item->title, // assuming title is the role
+                    'title' => $item->title,
                 ];
             }),
-        ];
+        ]);
     }
-    
-    
-    // Update an existing testimonial
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'testimonial' => 'required|string',
+            'name' => 'required|string',
+            'title' => 'required|string',
+        ]);
+
+        Testimonial::create($validated);
+
+        // Redirect to testimonials page after adding new testimonial
+        return Inertia::location('/testimonials');
+    }
+
     public function update(Request $request, $id)
     {
-        $testimonial = Testimonial::updateTestimonial($id, $request->only(['testimonial', 'name', 'title']));
-        return response()->json($testimonial);
-    }
-
-    // Edit a testimonial (This will retrieve the testimonial by ID)
-    public function edit($id)
-    {
         $testimonial = Testimonial::findOrFail($id);
-        return response()->json($testimonial);
+
+        $validated = $request->validate([
+            'testimonial' => 'required|string',
+            'name' => 'required|string',
+            'title' => 'required|string',
+        ]);
+
+        $testimonial->update($validated);
+
+        return Inertia::location('/testimonials'); // Redirect to testimonials page after update
     }
 
-    // Delete a testimonial
     public function destroy($id)
     {
-        $testimonial = Testimonial::deleteTestimonial($id);
-        return response()->json(['message' => 'Testimonial deleted successfully', 'testimonial' => $testimonial]);
+        $testimonial = Testimonial::findOrFail($id);
+        $testimonial->delete();
+
+        return Inertia::location('/testimonials'); // Redirect to testimonials page after delete
     }
 }

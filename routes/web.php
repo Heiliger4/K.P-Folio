@@ -37,9 +37,8 @@ Route::post('/courses', [CourseController::class, 'store']);
 Route::put('/courses/{id}', [CourseController::class, 'update']);
 Route::delete('/courses/{id}', [CourseController::class, 'destroy']);
 
-Route::put('/testimonials/{id}', [TestimonialController::class, 'update']);
-Route::get('/testimonials/{id}/edit', [TestimonialController::class, 'edit']);
-Route::delete('/testimonials/{id}', [TestimonialController::class, 'destroy']);
+Route::resource('testimonials', TestimonialController::class);
+
 
 Route::put('/experiences/{id}', [ExperienceController::class, 'update']);
 Route::put('/social-links/{id}', [SocialLinkController::class, 'update']);
